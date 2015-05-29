@@ -40,3 +40,10 @@ Can pre-fetch docker image (if you don't now, it will occur when you attempt to 
 `docker exec oo /sspeiche/git/openshift-tools/oo-setup`
 
 **That's it!**  You should be able to launch the Web Console from your browser on your host such as [https://localhost:8443](https://localhost:8443)
+
+There is video that shows some of this setup and also app running from source.
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=uocucZqg_0I
+" target="_blank"><img src="http://img.youtube.com/vi/uocucZqg_0I/0.jpg" 
+alt="OpenShift 3: Zero to PaaS to running app" width="240" height="180" border="10" /></a>
+
