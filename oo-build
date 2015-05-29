@@ -1,0 +1,5 @@
+#!/bin/bash
+bc=`osc get bc --no-headers | awk '{print $1}'`
+cmd="osc start-build $bc --follow"
+echo $cmd
+$cmd

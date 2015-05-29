@@ -1,0 +1,4 @@
+#!/bin/bash
+VboxManage modifyvm "boot2docker-vm" --natpf1 "rule1,tcp,,8443,,8443"
+VboxManage modifyvm "boot2docker-vm" --natpf1 "rule2,tcp,,8080,,8080"
+VboxManage modifyvm "boot2docker-vm" --natpf1 "rule3,tcp,,80,,80"

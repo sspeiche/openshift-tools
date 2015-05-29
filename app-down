@@ -1,0 +1,2 @@
+#!/bin/bash
+osc update rc $1 --patch='{"apiVersion": "v1beta3", "spec": {"replicas": 0}}'
