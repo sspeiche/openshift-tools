@@ -16,6 +16,7 @@ The typical flow is:
 `boot2docker init`
 
 Setup port forwarding
+
 `vbox-init`
 
 Fire up VM
