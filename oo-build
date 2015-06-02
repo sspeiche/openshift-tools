@@ -1,4 +1,5 @@
 #!/bin/bash
+# If you don't want to specify the build config and there is only one, this saves a little typing
 bc=`osc get bc --no-headers | awk '{print $1}'`
 cmd="osc start-build $bc --follow"
 echo $cmd

@@ -1,2 +1,4 @@
 #!/bin/bash
-osc update rc $1 --patch='{"apiVersion": "v1beta3", "spec": {"replicas": 0}}'
+# Pick the 'newest' rc, set replicas to 0 
+RC=$(osc get rc --no-headers | awk '{print $1}' | sort -r | head -1)
+osc scale --replicas=0 replicationcontrollers $RC
