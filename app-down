@@ -1,4 +1,4 @@
 #!/bin/bash
 # Pick the 'newest' rc, set replicas to 0 
-RC=$(osc get rc --no-headers | awk '{print $1}' | sort -r | head -1)
+RC=$(osc get rc --no-headers | tail -1 | awk '{print $1}')
 osc scale --replicas=0 replicationcontrollers $RC
