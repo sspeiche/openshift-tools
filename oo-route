@@ -1,7 +1,9 @@
 #!/bin/sh
+# Setup host networking with routes to boot2docker VM
 DOCKER_IP=$(boot2docker ip)
 sudo route -n delete 172.0.0.0/8 &> /dev/null
 sudo route -n add 172.0.0.0/8 $DOCKER_IP &> /dev/null
+# Update local DNS server with boot2docker VM IP
 sed -e "s/docker-ip/$DOCKER_IP/" < /usr/local/etc/dnsmasq.conf.templ > /usr/local/etc/dnsmasq.conf
 sudo launchctl stop homebrew.mxcl.dnsmasq
 sudo launchctl start homebrew.mxcl.dnsmasq

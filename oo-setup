@@ -1,8 +1,10 @@
 #!/bin/bash
+# Create the router and registry, add a new user and htpasswd 'redhat'
+NEWUSER=sspeiche
 osadm router --create --credentials=$OPENSHIFTCONFIG -n default
 osadm registry --create --credentials=$OPENSHIFTCONFIG -n default
-osc create -f /sspeiche/image-streams-centos7.json -n openshift
+osc create -f /$NEWUSER/image-streams-centos7.json -n openshift
 yum -y install httpd-tools
-useradd sspeiche
+useradd $NEWUSER
 touch /etc/openshift-passwd
-htpasswd -b /etc/openshift-passwd sspeiche redhat
+htpasswd -b /etc/openshift-passwd $NEWUSER redhat

@@ -1,4 +1,5 @@
 #!/bin/sh
+# Ensures boot2docker is up, mount some directories, change default domain and more stuff
 if [ "$(boot2docker status)" != "running" ]; then boot2docker start; fi
 boot2docker ssh "echo $'EXTRA_ARGS=\"--insecure-registry 0.0.0.0/0\"' | sudo tee -a /var/lib/boot2docker/profile && sudo /etc/init.d/docker restart"
 docker run -d --name "oo" \
@@ -7,7 +8,7 @@ docker run -d --name "oo" \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $HOME/bin:/usr/host/bin \
   -v /usr/local/bin/docker:/usr/bin/docker \
-  -v /Users/sspeiche:/sspeiche \
+  -v $HOME:/$USER \
   -v /tmp/openshift:/tmp/openshift \
   -p 8080:8080 \
   -e USE_LOCAL_IMAGES=true \
