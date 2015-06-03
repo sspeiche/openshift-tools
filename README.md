@@ -17,7 +17,7 @@ The typical flow is:
 
 Setup port forwarding
 
-`vbox-init`
+`./vbox-init`
 
 Fire up VM
 
@@ -27,14 +27,14 @@ If needed, set shell env based on output of `boot2docker shellinit`
 
 Additionally, on the host, setup routes based on new boot2docker ip
 
-`oo-route`
+`./oo-route`
 
 Can pre-fetch docker image (if you don't now, it will occur when you attempt to start docker)
 
 `docker pull openshift/origin:latest`
 
 ### start OpenShift Origin
-`oo-start`
+`./oo-start`
 
 ### config OpenShift Origin
 `docker exec oo /sspeiche/git/openshift-tools/oo-setup`
