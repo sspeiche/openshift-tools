@@ -1,7 +1,7 @@
 # openshift-tools
 Some personal scripts I use to easily setup my test/play/demo env
 
-I run on a MacBook, using VirtualBox and Boot2Docker. Note I also [use dnsmasq on my host](http://passingcuriosity.com/2013/dnsmasq-dev-osx/) so I can easily setup routes using DNS wildcard *.apps.
+I run on a MacBook, using VirtualBox and Boot2Docker. Note I also [use dnsmasq on my host](http://passingcuriosity.com/2013/dnsmasq-dev-osx/) so I can easily setup routes using DNS wildcard *.openshiftapps.com.
 
 Some of the scripts are hard-coded to my setup, you may want to change that.
 

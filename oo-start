@@ -1,10 +1,12 @@
 #!/bin/sh
 # Ensures boot2docker is up, mount some directories, change default domain and more stuff
+LABEL=latest
 if [ "$(boot2docker status)" != "running" ]; then boot2docker start; fi
 boot2docker ssh "echo $'EXTRA_ARGS=\"--insecure-registry 0.0.0.0/0\"' | sudo tee -a /var/lib/boot2docker/profile && sudo /etc/init.d/docker restart"
 docker run -d --name "oo" \
   --pid=host --ipc=host \
   --net=host --privileged \
+  -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker:/var/lib/docker:rw \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $HOME/bin:/usr/host/bin \
   -v /usr/local/bin/docker:/usr/bin/docker \
@@ -12,5 +14,6 @@ docker run -d --name "oo" \
   -v /tmp/openshift:/tmp/openshift \
   -p 8080:8080 \
   -e USE_LOCAL_IMAGES=true \
-  -e OPENSHIFT_ROUTE_SUBDOMAIN=apps \
-  openshift/origin:latest start --public-master=localhost --latest-images=true
+  -e OPENSHIFT_ROUTE_SUBDOMAIN=openshiftapps.com \
+  openshift/origin:$LABEL start --public-master=localhost --latest-images=true 
+
